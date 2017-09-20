@@ -1,0 +1,165 @@
+In [8]: User.objects.all()
+Out[8]: <QuerySet []>
+
+In [9]: User.object.create(first_name="Bill", last_name="Bill", email_address="B
+   ...: ill", age = "8111")
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-9-1615fb9fee54> in <module>()
+----> 1 User.object.create(first_name="Bill", last_name="Bill", email_address="Bill", age = "8111")
+
+AttributeError: type object 'User' has no attribute 'object'
+
+In [10]: User.objects.create(first_name="Bill", last_name="Bill", email_address=
+    ...: "Bill", age = "8111")
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-10-de4412192ea4> in <module>()
+----> 1 User.objects.create(first_name="Bill", last_name="Bill", email_address="Bill", age = "8111")
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in create(self, **kwargs)
+    395         and returning the created object.
+    396         """
+--> 397         obj = self.model(**kwargs)
+    398         self._for_write = True
+    399         obj.save(force_insert=True, using=self.db)
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in __init__(self, *args, **kwargs)
+    553                     pass
+    554             if kwargs:
+--> 555                 raise TypeError("'%s' is an invalid keyword argument for this function" % list(kwargs)[0])
+    556         super(Model, self).__init__()
+    557         signals.post_init.send(sender=self.__class__, instance=self)
+
+TypeError: 'age' is an invalid keyword argument for this function
+
+In [11]: User.objects.create(first_name="Bill", last_name="Bill", email_address=
+    ...: "Bill", age = 8111)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-11-21d73f9fad9f> in <module>()
+----> 1 User.objects.create(first_name="Bill", last_name="Bill", email_address="Bill", age = 8111)
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in create(self, **kwargs)
+    395         and returning the created object.
+    396         """
+--> 397         obj = self.model(**kwargs)
+    398         self._for_write = True
+    399         obj.save(force_insert=True, using=self.db)
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in __init__(self, *args, **kwargs)
+    553                     pass
+    554             if kwargs:
+--> 555                 raise TypeError("'%s' is an invalid keyword argument for this function" % list(kwargs)[0])
+    556         super(Model, self).__init__()
+    557         signals.post_init.send(sender=self.__class__, instance=self)
+
+TypeError: 'age' is an invalid keyword argument for this function
+
+In [12]: User.objects.create(first_name="Bill", last_name="Bill", email_address=
+    ...: "Bill", age= 8111)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-12-c5e1f268c950> in <module>()
+----> 1 User.objects.create(first_name="Bill", last_name="Bill", email_address="Bill", age= 8111)
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/manager.pyc in manager_method(self, *args, **kwargs)
+     83         def create_method(name, method):
+     84             def manager_method(self, *args, **kwargs):
+---> 85                 return getattr(self.get_queryset(), name)(*args, **kwargs)
+     86             manager_method.__name__ = method.__name__
+     87             manager_method.__doc__ = method.__doc__
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/query.pyc in create(self, **kwargs)
+    395         and returning the created object.
+    396         """
+--> 397         obj = self.model(**kwargs)
+    398         self._for_write = True
+    399         obj.save(force_insert=True, using=self.db)
+
+/Users/tiffanipack/Desktop/DojoAssignments/Python/my_Environments/djangoEnv/lib/python2.7/site-packages/django/db/models/base.pyc in __init__(self, *args, **kwargs)
+    553                     pass
+    554             if kwargs:
+--> 555                 raise TypeError("'%s' is an invalid keyword argument for this function" % list(kwargs)[0])
+    556         super(Model, self).__init__()
+    557         signals.post_init.send(sender=self.__class__, instance=self)
+
+TypeError: 'age' is an invalid keyword argument for this function
+
+In [13]: User.objects.all()
+Out[13]: <QuerySet []>
+
+In [14]: User.objects.create(first_name="Bill", last_name="Bill", email_address=
+    ...: "Bill")
+Out[14]: <User: User object>
+
+In [15]: User.objects.all()
+Out[15]: <QuerySet [<User: User object>]>
+
+In [16]: User.objects.create(first_name="Byyyyyyyill", last_name="Biyyyyll", ema
+    ...: il_address="Billyyyy")
+Out[16]: <User: User object>
+
+In [17]: User.objects.all()
+Out[17]: <QuerySet [<User: User object>, <User: User object>]>
+
+In [18]: User.objects.first()
+Out[18]: <User: User object>
+
+In [19]: User.objects.order_by("first_name")
+Out[19]: <QuerySet [<User: User object>, <User: User object>]>
+
+In [20]: User.objects.create(first_name="Byyyqwrgyyyyill", last_name="Biyyyyll",
+    ...:  email_address="Billyyyjhdfvnjky")
+Out[20]: <User: User object>
+
+In [21]: User.objects.get(id=3)
+Out[21]: <User: User object>
+
+In [22]: yo=User.objects.get(id=3)
+
+In [23]: yo.last_name="Mamma"
+
+In [24]: yo.save()
+
+In [25]: yo=User.objects.get(last_name)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-25-5f8741dd3935> in <module>()
+----> 1 yo=User.objects.get(last_name)
+
+NameError: name 'last_name' is not defined
+
+In [26]: User.objects.get(id=3,last_name)
+  File "<ipython-input-26-cf6732be01d2>", line 1
+    User.objects.get(id=3,last_name)
+SyntaxError: non-keyword arg after keyword arg
+
+
+In [27]: User.objects.get(id=3).delete
+Out[27]: <bound method User.delete of <User: User object>>
+
+In [28]: User.objects.all()
+Out[28]: <QuerySet [<User: User object>, <User: User object>, <User: User object>]>
+
+In [29]: User.objects.get(id=3).delete()
+Out[29]: (1, {u'user_login_app.User': 1})
+
+In [30]: User.objects.all()
+Out[30]: <QuerySet [<User: User object>, <User: User object>]>
+
+In [31]: 
